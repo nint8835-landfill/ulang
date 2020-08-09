@@ -1,6 +1,6 @@
-from typing import List, Sequence, Tuple, Union, cast
+from typing import List, Tuple, Union, cast
 
-from lark import Token, Transformer, Tree
+from lark import Token, Transformer
 
 from .expression import (
     Expression,
@@ -31,4 +31,4 @@ class LanguageTransformer(Transformer):
         name, parameters, *children = items
         name = cast(Token, name)
         parameters = cast(List[str], parameters)
-        return FunctionExpression(name.value, parameters, children)  # type: ignore  # No matter what I do, I can't manage to make mypy cast children to List[Expression] successfully
+        return FunctionExpression(name.value, parameters, children)  # type: ignore  # No matter what I do, I can't manage to make mypy cast children to List[Expression] successfully # noqa
