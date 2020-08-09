@@ -15,7 +15,7 @@ expression: function
           | call
           | literal
           | return
-          | NAME
+          | NAME -> identifier
 start: expression* 
 
 %import common.CNAME -> NAME
