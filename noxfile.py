@@ -21,6 +21,7 @@ def lint(session: nox.sessions.Session) -> None:
 @nox.session(python="3.8")
 def typecheck(session: nox.sessions.Session) -> None:
     session.install("-r", "requirements.txt")
+    session.install("mypy==0.782")
     session.run("mypy", PACKAGE_NAME)
 
 
