@@ -1,13 +1,25 @@
-function: "func " NAME "(" parameters ")" block
-parameters: [NAME ("," NAME)*]
+function: "func " NAME "(" parameter_list ")" block
+parameter_list: [NAME ("," NAME)*]
 
-block: "{" statement* "}"
+assignment: NAME "=" expression
+call: NAME "(" provided_parameters ")"
+provided_parameters: [assignment ("," assignment)* ","?]
 
-statement: function*
-start: statement
+block: "{" expression* "}"
+
+literal: STRING
+       | SIGNED_NUMBER
+expression: function
+          | assignment
+          | call
+          | NAME
+          | literal
+start: expression* 
 
 %import common.CNAME -> NAME
 %import common.LETTER
 %import common.DIGIT
 %import common.WS
+%import common.SIGNED_NUMBER
+%import common.ESCAPED_STRING -> STRING
 %ignore WS
