@@ -1,0 +1,13 @@
+function: "func " NAME "(" parameters ")" block
+parameters: [NAME ("," NAME)*]
+
+block: "{" statement* "}"
+
+statement: function*
+start: statement
+
+%import common.CNAME -> NAME
+%import common.LETTER
+%import common.DIGIT
+%import common.WS
+%ignore WS

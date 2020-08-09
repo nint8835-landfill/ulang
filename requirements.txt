@@ -4,3 +4,4 @@
 #
 #    pip-compile requirements.in
 #
+lark-parser==0.9.0        # via -r requirements.in
