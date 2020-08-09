@@ -3,6 +3,7 @@ parameter_list: [NAME ("," NAME)*]
 
 assignment: NAME "=" expression
 call: NAME "(" provided_parameters ")"
+return: "return " expression
 provided_parameters: [assignment ("," assignment)* ","?]
 
 block: "{" expression* "}"
@@ -12,8 +13,9 @@ literal: STRING
 expression: function
           | assignment
           | call
-          | NAME
           | literal
+          | return
+          | NAME
 start: expression* 
 
 %import common.CNAME -> NAME

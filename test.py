@@ -4,6 +4,7 @@ TEST_SOURCE = """
 
 func abc(a, b, c) {
     b = a
+    return b
 }
 
 func main() {
